@@ -17,12 +17,6 @@
         .screen.active { display: block; }
         .bottom-nav-item.active svg { color: #10B981; }
         .bottom-nav-item.active span { color: #10B981; }
-        .solution-package-img {
-            width: 100%;
-            height: 100px;
-            object-fit: contain;
-            margin-bottom: 0.5rem;
-        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
@@ -160,35 +154,14 @@
                     <!-- Other Solution Packages -->
                     <div class="bg-white p-4 rounded-xl border">
                         <h2 class="text-lg font-semibold mb-4">Các Gói Giải Pháp Tham Khảo</h2>
-                        <div class="grid grid-cols-2 gap-4">
-                            <button data-target="solution_foundational" class="nav-button border rounded-lg p-3 text-center shadow-sm hover:bg-gray-50 transition">
-                                <img src="https://storage.googleapis.com/gemini-prod-us-east1-9534/GÓI%20GIẢI%20PHÁP%20CHO%20SỨC%20KHOẺ%20NỀN%20TẢNG.jpg" alt="Sức khỏe nền tảng" class="solution-package-img">
-                                <p class="text-xs font-medium text-gray-700">Sức Khỏe Nền Tảng</p>
-                            </button>
-                            <button data-target="solution_digestive" class="nav-button border rounded-lg p-3 text-center shadow-sm hover:bg-gray-50 transition">
-                                <img src="https://storage.googleapis.com/gemini-prod-us-east1-9534/GÓI%20GIẢI%20PHÁP%20CHO%20HỆ%20TIÊU%20HOÁ.jpg" alt="Hệ tiêu hóa" class="solution-package-img">
-                                <p class="text-xs font-medium text-gray-700">Hệ Tiêu Hóa</p>
-                            </button>
-                            <button data-target="solution_immune" class="nav-button border rounded-lg p-3 text-center shadow-sm hover:bg-gray-50 transition">
-                                <img src="https://storage.googleapis.com/gemini-prod-us-east1-9534/GÓI%20GIẢI%20PHÁP%20CHO%20HỆ%20MIỄN%20DỊCH.jpg" alt="Hệ miễn dịch" class="solution-package-img">
-                                <p class="text-xs font-medium text-gray-700">Hệ Miễn Dịch</p>
-                            </button>
-                            <button data-target="solution_joint" class="nav-button border rounded-lg p-3 text-center shadow-sm hover:bg-gray-50 transition">
-                                <img src="https://storage.googleapis.com/gemini-prod-us-east1-9534/GÓI%20GIẢI%20PHÁP%20CHO%20XƯƠNG%20KHỚP.jpg" alt="Xương khớp" class="solution-package-img">
-                                <p class="text-xs font-medium text-gray-700">Xương Khớp</p>
-                            </button>
-                            <button data-target="solution_cardio" class="nav-button border rounded-lg p-3 text-center shadow-sm hover:bg-gray-50 transition">
-                                <img src="https://storage.googleapis.com/gemini-prod-us-east1-9534/GÓI%20GIẢI%20PHÁP%20CHO%20TIM%20MẠCH.jpg" alt="Tim mạch" class="solution-package-img">
-                                <p class="text-xs font-medium text-gray-700">Tim Mạch</p>
-                            </button>
-                            <button data-target="solution_liver" class="nav-button border rounded-lg p-3 text-center shadow-sm hover:bg-gray-50 transition">
-                                <img src="https://storage.googleapis.com/gemini-prod-us-east1-9534/GÓI%20GIẢI%20PHÁP%20CHO%20LÁ%20GAN.jpg" alt="Lá gan" class="solution-package-img">
-                                <p class="text-xs font-medium text-gray-700">Lá Gan</p>
-                            </button>
-                            <button data-target="solution_brain_eye" class="nav-button border rounded-lg p-3 text-center shadow-sm col-span-2 hover:bg-gray-50 transition">
-                                <img src="https://storage.googleapis.com/gemini-prod-us-east1-9534/GÓI%20GIẢI%20PHÁP%20CHO%20MẮT%20VÀ%20NÃO%20BỘ.jpg" alt="Mắt và não bộ" class="solution-package-img">
-                                <p class="text-xs font-medium text-gray-700">Mắt & Não Bộ</p>
-                            </button>
+                        <div class="space-y-2">
+                            <button data-target="solution_foundational" class="nav-button w-full text-left p-3 bg-gray-100 hover:bg-emerald-100 rounded-lg transition font-medium text-sm text-gray-800">Gói Giải Pháp: Sức Khỏe Nền Tảng</button>
+                            <button data-target="solution_digestive" class="nav-button w-full text-left p-3 bg-gray-100 hover:bg-emerald-100 rounded-lg transition font-medium text-sm text-gray-800">Gói Giải Pháp: Hệ Tiêu Hóa</button>
+                            <button data-target="solution_immune" class="nav-button w-full text-left p-3 bg-gray-100 hover:bg-emerald-100 rounded-lg transition font-medium text-sm text-gray-800">Gói Giải Pháp: Hệ Miễn Dịch</button>
+                            <button data-target="solution_joint" class="nav-button w-full text-left p-3 bg-gray-100 hover:bg-emerald-100 rounded-lg transition font-medium text-sm text-gray-800">Gói Giải Pháp: Xương Khớp</button>
+                            <button data-target="solution_cardio" class="nav-button w-full text-left p-3 bg-gray-100 hover:bg-emerald-100 rounded-lg transition font-medium text-sm text-gray-800">Gói Giải Pháp: Tim Mạch</button>
+                            <button data-target="solution_liver" class="nav-button w-full text-left p-3 bg-gray-100 hover:bg-emerald-100 rounded-lg transition font-medium text-sm text-gray-800">Gói Giải Pháp: Lá Gan</button>
+                            <button data-target="solution_brain_eye" class="nav-button w-full text-left p-3 bg-gray-100 hover:bg-emerald-100 rounded-lg transition font-medium text-sm text-gray-800">Gói Giải Pháp: Mắt & Não Bộ</button>
                         </div>
                     </div>
                 </div>
@@ -201,9 +174,8 @@
                     <h1 class="text-xl font-bold">Gói Giải Pháp: Sức Khỏe Nền Tảng</h1>
                 </header>
                 <div class="space-y-3 text-sm text-gray-700">
-                    <img src="https://storage.googleapis.com/gemini-prod-us-east1-9534/GÓI%20GIẢI%20PHÁP%20CHO%20SỨC%20KHOẺ%20NỀN%20TẢNG.jpg" alt="Sức khỏe nền tảng" class="w-full rounded-lg mb-4">
-                    <p>Bộ sản phẩm nền tảng giúp lấp đầy các khoảng trống dinh dưỡng, xây dựng một cơ thể khỏe mạnh từ gốc rễ.</p>
-                    <ul class="list-disc list-inside space-y-1 font-medium">
+                    <p class="mb-2">Bộ sản phẩm nền tảng giúp lấp đầy các khoảng trống dinh dưỡng, xây dựng một cơ thể khỏe mạnh từ gốc rễ.</p>
+                    <ul class="list-disc list-inside space-y-1 font-medium bg-gray-50 p-3 rounded-md">
                         <li>Nutrilite Double X</li>
                         <li>Nutrilite All Plant Protein Powder</li>
                         <li>Nutrilite Salmon Omega-3</li>
@@ -217,9 +189,8 @@
                     <h1 class="text-xl font-bold">Gói Giải Pháp: Hệ Tiêu Hóa</h1>
                 </header>
                 <div class="space-y-3 text-sm text-gray-700">
-                    <img src="https://storage.googleapis.com/gemini-prod-us-east1-9534/GÓI%20GIẢI%20PHÁP%20CHO%20HỆ%20TIÊU%20HOÁ.jpg" alt="Hệ tiêu hóa" class="w-full rounded-lg mb-4">
-                    <p>Hỗ trợ cân bằng hệ vi sinh vật đường ruột, củng cố hàng rào miễn dịch và giúp hệ tiêu hóa hoạt động trơn tru.</p>
-                    <ul class="list-disc list-inside space-y-1 font-medium">
+                    <p class="mb-2">Hỗ trợ cân bằng hệ vi sinh vật đường ruột, củng cố hàng rào miễn dịch và giúp hệ tiêu hóa hoạt động trơn tru.</p>
+                    <ul class="list-disc list-inside space-y-1 font-medium bg-gray-50 p-3 rounded-md">
                         <li>Nutrilite Probiotic</li>
                         <li>Nutrilite Chewable Fibre Blend / Fiber Powder</li>
                         <li>Nutrilite Milk Thistle & Dandelion</li>
@@ -233,9 +204,8 @@
                     <h1 class="text-xl font-bold">Gói Giải Pháp: Hệ Miễn Dịch</h1>
                 </header>
                 <div class="space-y-3 text-sm text-gray-700">
-                    <img src="https://storage.googleapis.com/gemini-prod-us-east1-9534/GÓI%20GIẢI%20PHÁP%20CHO%20HỆ%20MIỄN%20DỊCH.jpg" alt="Hệ miễn dịch" class="w-full rounded-lg mb-4">
-                    <p>Tăng cường sức đề kháng tự nhiên của cơ thể, xây dựng hàng rào bảo vệ vững chắc khỏi các tác nhân gây hại.</p>
-                     <ul class="list-disc list-inside space-y-1 font-medium">
+                    <p class="mb-2">Tăng cường sức đề kháng tự nhiên của cơ thể, xây dựng hàng rào bảo vệ vững chắc khỏi các tác nhân gây hại.</p>
+                     <ul class="list-disc list-inside space-y-1 font-medium bg-gray-50 p-3 rounded-md">
                         <li>Nutrilite Bio C Plus / Vitamin C Extended Release</li>
                         <li>Nutrilite Probiotic</li>
                         <li>Nutrilite Immunity Defense Zinc + Holy Basil</li>
@@ -249,9 +219,8 @@
                     <h1 class="text-xl font-bold">Gói Giải Pháp: Xương Khớp</h1>
                 </header>
                 <div class="space-y-3 text-sm text-gray-700">
-                    <img src="https://storage.googleapis.com/gemini-prod-us-east1-9534/GÓI%20GIẢI%20PHÁP%20CHO%20XƯƠNG%20KHỚP.jpg" alt="Xương khớp" class="w-full rounded-lg mb-4">
-                    <p>Cung cấp các dưỡng chất thiết yếu để nuôi dưỡng sụn khớp, bôi trơn và xây dựng hệ xương vững chắc, dẻo dai.</p>
-                     <ul class="list-disc list-inside space-y-1 font-medium">
+                    <p class="mb-2">Cung cấp các dưỡng chất thiết yếu để nuôi dưỡng sụn khớp, bôi trơn và xây dựng hệ xương vững chắc, dẻo dai.</p>
+                     <ul class="list-disc list-inside space-y-1 font-medium bg-gray-50 p-3 rounded-md">
                         <li>Nutrilite Cal Mag D</li>
                         <li>Nutrilite Joint Health</li>
                         <li>Nutrilite Salmon Omega-3</li>
@@ -265,9 +234,8 @@
                     <h1 class="text-xl font-bold">Gói Giải Pháp: Tim Mạch</h1>
                 </header>
                 <div class="space-y-3 text-sm text-gray-700">
-                    <img src="https://storage.googleapis.com/gemini-prod-us-east1-9534/GÓI%20GIẢI%20PHÁP%20CHO%20TIM%20MẠCH.jpg" alt="Tim mạch" class="w-full rounded-lg mb-4">
-                    <p>Bảo vệ "động cơ" của cơ thể bằng cách cung cấp năng lượng cho cơ tim và các chất chống oxy hóa mạnh mẽ.</p>
-                     <ul class="list-disc list-inside space-y-1 font-medium">
+                    <p class="mb-2">Bảo vệ "động cơ" của cơ thể bằng cách cung cấp năng lượng cho cơ tim và các chất chống oxy hóa mạnh mẽ.</p>
+                     <ul class="list-disc list-inside space-y-1 font-medium bg-gray-50 p-3 rounded-md">
                         <li>Nutrilite Heart Health CoQ10</li>
                         <li>Nutrilite Parselenium E / Vitamin E</li>
                         <li>Nutrilite Salmon Omega-3</li>
@@ -281,9 +249,8 @@
                     <h1 class="text-xl font-bold">Gói Giải Pháp: Lá Gan</h1>
                 </header>
                 <div class="space-y-3 text-sm text-gray-700">
-                    <img src="https://storage.googleapis.com/gemini-prod-us-east1-9534/GÓI%20GIẢI%20PHÁP%20CHO%20LÁ%20GAN.jpg" alt="Lá gan" class="w-full rounded-lg mb-4">
-                    <p>Hỗ trợ giải độc, bảo vệ và tăng cường chức năng gan, cơ quan thải độc quan trọng nhất của cơ thể.</p>
-                     <ul class="list-disc list-inside space-y-1 font-medium">
+                    <p class="mb-2">Hỗ trợ giải độc, bảo vệ và tăng cường chức năng gan, cơ quan thải độc quan trọng nhất của cơ thể.</p>
+                     <ul class="list-disc list-inside space-y-1 font-medium bg-gray-50 p-3 rounded-md">
                         <li>Nutrilite Milk Thistle & Dandelion</li>
                         <li>Nutrilite Natural B Complex</li>
                         <li>Nutrilite All Plant Protein Powder</li>
@@ -297,9 +264,8 @@
                     <h1 class="text-xl font-bold">Gói Giải Pháp: Mắt & Não Bộ</h1>
                 </header>
                 <div class="space-y-3 text-sm text-gray-700">
-                    <img src="https://storage.googleapis.com/gemini-prod-us-east1-9534/GÓI%20GIẢI%20PHÁP%20CHO%20MẮT%20VÀ%20NÃO%20BỘ.jpg" alt="Mắt và não bộ" class="w-full rounded-lg mb-4">
-                    <p>Cung cấp các dưỡng chất chuyên biệt giúp bảo vệ thị lực và hỗ trợ các chức năng của não bộ.</p>
-                     <ul class="list-disc list-inside space-y-1 font-medium">
+                    <p class="mb-2">Cung cấp các dưỡng chất chuyên biệt giúp bảo vệ thị lực và hỗ trợ các chức năng của não bộ.</p>
+                     <ul class="list-disc list-inside space-y-1 font-medium bg-gray-50 p-3 rounded-md">
                         <li>Nutrilite Multi Carotene</li>
                         <li>Nutrilite Salmon Omega-3</li>
                         <li>Nutrilite Ginkgo with Gotu Kola</li>
