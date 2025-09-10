@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sức Khỏe 360: Nền Tảng & Cân Bằng</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .screen { display: none; }
+        .screen.active { display: block; }
+        .bottom-nav-item.active svg { color: #10B981; }
+        .bottom-nav-item.active span { color: #10B981; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Main Application Container -->
+    <div id="app-container" class="max-w-md mx-auto bg-white min-h-screen shadow-lg">
+        <main id="main-content" class="p-4 pb-24">
+
+            <!-- ========= HOME SCREEN ========= -->
+            <div id="home" class="screen active">
+                <header class="mb-6">
+                    <h1 class="text-2xl font-bold text-emerald-600">Sức Khỏe 360</h1>
+                    <p class="text-gray-500">Chào mừng bạn trở lại!</p>
+                </header>
+
+                <!-- Health Dashboard -->
+                <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-4 mb-6">
+                    <h2 class="text-lg font-semibold mb-3 text-emerald-800">Bản Đồ Sức Khỏe</h2>
+                    <div class="space-y-3">
+                        <div>
+                            <p class="text-sm text-gray-600">Năng lượng mục tiêu hôm nay:</p>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5 mt-1">
+                                <div class="bg-emerald-500 h-2.5 rounded-full" style="width: 80%"></div>
+                            </div>
+                            <p class="text-right text-sm font-medium mt-1">1760 / 2200 kcal</p>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-600">Ưu tiên sức khỏe:</p>
+                            <div class="flex flex-wrap gap-2 mt-1">
+                                <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Kiểm soát Cân nặng</span>
+                                <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Sức khỏe Tiêu hóa</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Health Tip of the Day -->
+                <div class="bg-amber-50 border border-amber-200 rounded-xl p-4">
+                    <h3 class="font-semibold text-amber-800 mb-2">💡 Mẹo Sức Khỏe Hôm Nay</h3>
+                    <p id="health-tip" class="text-sm text-gray-700"></p>
+                </div>
+            </div>
+
+            <!-- ========= DAILY JOURNEY SCREEN ========= -->
+            <div id="daily_journey" class="screen">
+                <header class="mb-6">
+                    <h1 class="text-2xl font-bold text-emerald-600">Lộ Trình Hàng Ngày</h1>
+                    <p id="current-date" class="text-gray-500"></p>
+                </header>
+
+                <div class="space-y-6">
+                    <!-- Nutrition Section -->
+                    <div class="bg-white p-4 rounded-xl border">
+                        <h2 class="text-lg font-semibold mb-4 flex items-center"><span class="text-2xl mr-2">🥗</span>Dinh Dưỡng Thông Minh</h2>
+                        <ul class="space-y-3 text-sm">
+                            <li class="flex items-center"><input type="checkbox" class="h-4 w-4 rounded border-gray-300 text-emerald-600 focus:ring-emerald-500 mr-3"><span class="flex-1"><strong>Bữa sáng:</strong> BodyKey + 1 muỗng Protein</span></li>
+                            <li class="flex items-center"><input type="checkbox" class="h-4 w-4 rounded border-gray-300 text-emerald-600 focus:ring-emerald-500 mr-3"><span class="flex-1"><strong>Bữa trưa:</strong> Cơm gạo lứt, ức gà, rau xanh. (Uống 1 viên CB Plus)</span></li>
+                             <li class="flex items-center"><input type="checkbox" class="h-4 w-4 rounded border-gray-300 text-emerald-600 focus:ring-emerald-500 mr-3"><span class="flex-1"><strong>Bữa tối:</strong> Salad cá hồi + 1 viên Omega-3</span></li>
+                        </ul>
+                    </div>
+                    <!-- Workout Section -->
+                    <div class="bg-white p-4 rounded-xl border">
+                        <h2 class="text-lg font-semibold mb-4 flex items-center"><span class="text-2xl mr-2">🏃</span>Vận Động Phù Hợp</h2>
+                        <ul class="space-y-3 text-sm">
+                            <li class="flex items-center"><input type="checkbox" class="h-4 w-4 rounded border-gray-300 text-emerald-600 focus:ring-emerald-500 mr-3"><span class="flex-1"><strong>Mục tiêu:</strong> Đi bộ nhanh 30 phút</span></li>
+                        </ul>
+                    </div>
+                    <!-- Lifestyle Section -->
+                    <div class="bg-white p-4 rounded-xl border">
+                        <h2 class="text-lg font-semibold mb-4 flex items-center"><span class="text-2xl mr-2">🧘</span>Lối Sống Cân Bằng</h2>
+                        <ul class="space-y-3 text-sm">
+                            <li class="flex items-center"><input type="checkbox" class="h-4 w-4 rounded border-gray-300 text-emerald-600 focus:ring-emerald-500 mr-3"><span class="flex-1">Uống đủ 2 lít nước (uống từng ngụm)</span></li>
+                            <li class="flex items-center"><input type="checkbox" class="h-4 w-4 rounded border-gray-300 text-emerald-600 focus:ring-emerald-500 mr-3"><span class="flex-1">Thực hành hít thở sâu 5 phút</span></li>
+                            <li class="flex items-center"><input type="checkbox" class="h-4 w-4 rounded border-gray-300 text-emerald-600 focus:ring-emerald-500 mr-3"><span class="flex-1">Ngủ trước 23:00</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ========= LIBRARY SCREEN ========= -->
+            <div id="library" class="screen">
+                <header class="mb-6">
+                    <h1 class="text-2xl font-bold text-emerald-600">Thư Viện Dưỡng Sinh</h1>
+                    <p class="text-gray-500">Kiến thức là sức khỏe. Chọn một chủ đề để tìm hiểu.</p>
+                </header>
+                <div class="space-y-3">
+                    <button data-target="library_detail_foundational" class="nav-button w-full text-left p-4 bg-gray-100 hover:bg-emerald-100 rounded-lg transition"><strong>Sức Khỏe Nền Tảng</strong><p class="text-sm text-gray-600">Xây dựng "móng nhà" sức khỏe vững chắc.</p></button>
+                    <button data-target="library_detail_weight" class="nav-button w-full text-left p-4 bg-gray-100 hover:bg-emerald-100 rounded-lg transition"><strong>Kiểm Soát Cân Nặng</strong><p class="text-sm text-gray-600">Hiểu đúng về calo, cơ, mỡ và các giải pháp bền vững.</p></button>
+                    <button data-target="library_detail_digestive" class="nav-button w-full text-left p-4 bg-gray-100 hover:bg-emerald-100 rounded-lg transition"><strong>Sức Khỏe Tiêu Hóa</strong><p class="text-sm text-gray-600">Chìa khóa cho hệ miễn dịch và sức khỏe toàn diện.</p></button>
+                    <button data-target="library_detail_immune" class="nav-button w-full text-left p-4 bg-gray-100 hover:bg-emerald-100 rounded-lg transition"><strong>Sức Đề Kháng</strong><p class="text-sm text-gray-600">Xây dựng hàng rào bảo vệ cơ thể.</p></button>
+                    <button data-target="library_detail_joint" class="nav-button w-full text-left p-4 bg-gray-100 hover:bg-emerald-100 rounded-lg transition"><strong>Sức Khỏe Xương Khớp</strong><p class="text-sm text-gray-600">Dinh dưỡng cho hệ vận động dẻo dai.</p></button>
+                    <button data-target="library_detail_cardio" class="nav-button w-full text-left p-4 bg-gray-100 hover:bg-emerald-100 rounded-lg transition"><strong>Sức Khỏe Tim Mạch</strong><p class="text-sm text-gray-600">Bảo vệ "động cơ" của cơ thể.</p></button>
+                    <button data-target="library_detail_gender" class="nav-button w-full text-left p-4 bg-gray-100 hover:bg-emerald-100 rounded-lg transition"><strong>Sức Khỏe Chuyên Biệt (Nam/Nữ)</strong><p class="text-sm text-gray-600">Nhu cầu dinh dưỡng đặc thù theo giới tính.</p></button>
+                </div>
+            </div>
+
+            <!-- ========= TOOLS SCREEN ========= -->
+            <div id="tools" class="screen">
+                <header class="mb-6">
+                    <h1 class="text-2xl font-bold text-emerald-600">Công Cụ & Hỗ Trợ</h1>
+                    <p class="text-gray-500">Trợ lý sức khỏe cá nhân của bạn.</p>
+                </header>
+                <div class="space-y-6">
+                    <!-- BMR Calculator -->
+                    <div class="bg-white p-4 rounded-xl border">
+                        <h2 class="text-lg font-semibold mb-4">Tính Toán BMR & TDEE</h2>
+                        <form id="bmr-form" class="space-y-4 text-sm">
+                            <div>
+                                <label for="gender" class="block font-medium">Giới tính</label>
+                                <select id="gender" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500">
+                                    <option value="male">Nam</option>
+                                    <option value="female">Nữ</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="age" class="block font-medium">Tuổi (năm)</label>
+                                <input type="number" id="age" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500" placeholder="e.g., 35">
+                            </div>
+                            <div>
+                                <label for="height" class="block font-medium">Chiều cao (cm)</label>
+                                <input type="number" id="height" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500" placeholder="e.g., 172">
+                            </div>
+                            <div>
+                                <label for="weight" class="block font-medium">Cân nặng (kg)</label>
+                                <input type="number" id="weight" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500" placeholder="e.g., 78.8">
+                            </div>
+                            <button type="submit" class="w-full bg-emerald-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-emerald-700 transition">Tính Toán</button>
+                        </form>
+                        <div id="bmr-result" class="mt-4 text-center hidden">
+                            <p class="text-gray-600">Năng lượng trao đổi chất cơ bản (BMR) của bạn là:</p>
+                            <p class="text-3xl font-bold text-emerald-600 mt-1"><span id="bmr-value"></span> kcal/ngày</p>
+                        </div>
+                    </div>
+
+                    <!-- Product Recommendations -->
+                    <div class="bg-white p-4 rounded-xl border">
+                        <h2 class="text-lg font-semibold mb-4">Gợi Ý Sản Phẩm Hỗ Trợ</h2>
+                        <p class="text-sm text-gray-600 mb-3">Dựa trên mục tiêu "Kiểm soát Cân nặng" của bạn:</p>
+                        <ul class="space-y-2 text-sm list-disc list-inside">
+                           <li><strong>Bộ sản phẩm BodyKey:</strong> Bữa ăn thay thế đủ dinh dưỡng, kiểm soát calo.</li>
+                           <li><strong>Nutrilite GreenTrim:</strong> Hỗ trợ giảm mỡ cơ thể, đặc biệt là mỡ nội tạng.</li>
+                           <li><strong>Nutrilite CB Plus:</strong> Hỗ trợ hạn chế hấp thu calo từ bữa ăn giàu tinh bột.</li>
+                           <li><strong>Nutrilite Fiber Powder:</strong> Bổ sung chất xơ, giúp no lâu và tốt cho đường ruột.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ========= LIBRARY DETAIL SCREENS ========= -->
+            <div id="library_detail_foundational" class="screen">
+                <header class="mb-4">
+                    <button class="nav-back text-emerald-600 font-semibold mb-2">&lt; Quay lại Thư Viện</button>
+                    <h1 class="text-xl font-bold">Sức Khỏe Nền Tảng</h1>
+                </header>
+                <div class="space-y-3 text-sm text-gray-700">
+                    <p>Sức khỏe nền tảng được ví như móng nhà, xây dựng trên 3 nhóm dinh dưỡng chính:</p>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li><strong>Dinh dưỡng đa lượng:</strong> Protein, Chất béo, Bột đường.</li>
+                        <li><strong>Dinh dưỡng vi lượng:</strong> Vitamin & Khoáng chất.</li>
+                        <li><strong>Dưỡng chất thực vật:</strong> Các hợp chất chống oxy hóa từ 5 màu sắc rau củ quả.</li>
+                    </ul>
+                    <p><strong>Giải pháp đề xuất:</strong> Bộ sản phẩm Sức Khỏe Nền Tảng (Double X, Protein, Omega-3) giúp lấp đầy các khoảng trống dinh dưỡng mà bữa ăn hàng ngày có thể thiếu hụt.</p>
+                </div>
+            </div>
+
+            <div id="library_detail_weight" class="screen">
+                <header class="mb-4">
+                     <button class="nav-back text-emerald-600 font-semibold mb-2">&lt; Quay lại Thư Viện</button>
+                    <h1 class="text-xl font-bold">Khoa Học Kiểm Soát Cân Nặng</h1>
+                </header>
+                <div class="space-y-3 text-sm text-gray-700">
+                    <p><strong>Nguyên nhân gốc rễ:</strong> Mất cân bằng năng lượng (Calo nạp vào > Calo tiêu hao).</p>
+                    <p><strong>Giải pháp bền vững:</strong></p>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li><strong>Dinh dưỡng:</strong> Kiểm soát calo nhưng vẫn đủ chất, ưu tiên Protein và Chất xơ.</li>
+                        <li><strong>Vận động:</strong> Tăng cường tiêu hao năng lượng và xây dựng cơ bắp.</li>
+                        <li><strong>Lối sống:</strong> Ngủ đủ giấc, quản lý stress.</li>
+                    </ul>
+                    <p class="font-semibold text-red-600">Sai lầm cần tránh: Sử dụng thuốc giảm cân không rõ nguồn gốc gây mất nước, ức chế thần kinh.</p>
+                </div>
+            </div>
+            
+            <div id="library_detail_digestive" class="screen">
+                <header class="mb-4">
+                    <button class="nav-back text-emerald-600 font-semibold mb-2">&lt; Quay lại Thư Viện</button>
+                    <h1 class="text-xl font-bold">Sức Khỏe Tiêu Hóa</h1>
+                </header>
+                <div class="space-y-3 text-sm text-gray-700">
+                    <p><strong>Vai trò:</strong> Không chỉ hấp thu dinh dưỡng, đường ruột còn là nơi chứa đến 70% tế bào miễn dịch.</p>
+                    <p><strong>Chìa khóa:</strong> Sự cân bằng của hệ vi sinh vật đường ruột (tỷ lệ vàng 85% lợi khuẩn - 15% hại khuẩn).</p>
+                    <p><strong>Giải pháp:</strong></p>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li><strong>Bổ sung Probiotics (lợi khuẩn):</strong> Từ sữa chua, kim chi hoặc sản phẩm bổ sung.</li>
+                        <li><strong>Bổ sung Prebiotics (chất xơ hòa tan):</strong> Là thức ăn nuôi dưỡng lợi khuẩn, có nhiều trong các loại rau củ và sản phẩm bổ sung chất xơ.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div id="library_detail_immune" class="screen">
+                 <header class="mb-4">
+                    <button class="nav-back text-emerald-600 font-semibold mb-2">&lt; Quay lại Thư Viện</button>
+                    <h1 class="text-xl font-bold">Tăng Cường Sức Đề Kháng</h1>
+                </header>
+                 <div class="space-y-3 text-sm text-gray-700">
+                    <p>Hệ miễn dịch là hàng rào 3 lớp bảo vệ cơ thể. Để hàng rào này vững chắc, cần:</p>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li><strong>Vitamin C & Kẽm:</strong> Hỗ trợ sản xuất và hoạt động của tế bào miễn dịch.</li>
+                        <li><strong>Dưỡng chất thực vật 5 màu:</strong> Chống oxy hóa, bảo vệ tế bào.</li>
+                        <li><strong>Probiotics:</strong> Củng cố hàng rào miễn dịch tại đường ruột.</li>
+                        <li><strong>Protein:</strong> Là nguyên liệu tạo ra các kháng thể.</li>
+                    </ul>
+                </div>
+            </div>
+            
+             <div id="library_detail_joint" class="screen">
+                 <header class="mb-4">
+                    <button class="nav-back text-emerald-600 font-semibold mb-2">&lt; Quay lại Thư Viện</button>
+                    <h1 class="text-xl font-bold">Sức Khỏe Xương Khớp</h1>
+                </header>
+                 <div class="space-y-3 text-sm text-gray-700">
+                    <p><strong>Vấn đề thường gặp:</strong> Thoái hóa khớp, loãng xương, viêm khớp.</p>
+                    <p><strong>Dinh dưỡng cần thiết:</strong></p>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li><strong>"Vật liệu" cho sụn:</strong> Glucosamine, Chondroitin.</li>
+                        <li><strong>"Vật liệu" cho xương:</strong> Canxi, Magie, Vitamin D.</li>
+                        <li><strong>Chất kháng viêm tự nhiên:</strong> Omega-3.</li>
+                    </ul>
+                </div>
+            </div>
+
+             <div id="library_detail_cardio" class="screen">
+                 <header class="mb-4">
+                    <button class="nav-back text-emerald-600 font-semibold mb-2">&lt; Quay lại Thư Viện</button>
+                    <h1 class="text-xl font-bold">Sức Khỏe Tim Mạch</h1>
+                </header>
+                 <div class="space-y-3 text-sm text-gray-700">
+                     <p>Bảo vệ "động cơ" cơ thể bằng các dưỡng chất chuyên biệt:</p>
+                     <ul class="list-disc list-inside space-y-1">
+                         <li><strong>Omega-3:</strong> Hỗ trợ giảm cholesterol xấu, tốt cho tim và não bộ.</li>
+                         <li><strong>Coenzyme Q10:</strong> Cung cấp năng lượng cho tế bào cơ tim, là chất chống oxy hóa mạnh mẽ bảo vệ thành mạch.</li>
+                         <li><strong>Vitamin E & Selen:</strong> Bộ đôi chống oxy hóa giúp bảo vệ màng tế bào tim.</li>
+                     </ul>
+                </div>
+            </div>
+
+            <div id="library_detail_gender" class="screen">
+                 <header class="mb-4">
+                    <button class="nav-back text-emerald-600 font-semibold mb-2">&lt; Quay lại Thư Viện</button>
+                    <h1 class="text-xl font-bold">Sức Khỏe Chuyên Biệt (Nam/Nữ)</h1>
+                </header>
+                <div class="space-y-3 text-sm text-gray-700">
+                    <div class="p-3 bg-blue-50 rounded-lg">
+                        <h3 class="font-semibold text-blue-800">Nam giới:</h3>
+                        <ul class="list-disc list-inside mt-1">
+                            <li>Cần chú trọng các <strong>Vitamin nhóm B</strong> để chuyển hóa năng lượng, giảm stress.</li>
+                            <li><strong>Coenzyme Q10</strong> hỗ trợ hiệu suất thể chất.</li>
+                            <li>Các thảo dược như <strong>Cây cúc gai, Nghệ</strong> hỗ trợ chức năng gan.</li>
+                        </ul>
+                    </div>
+                     <div class="p-3 bg-pink-50 rounded-lg mt-3">
+                        <h3 class="font-semibold text-pink-800">Nữ giới:</h3>
+                        <ul class="list-disc list-inside mt-1">
+                            <li>Cần bổ sung đủ <strong>Sắt & Axit Folic</strong> để tạo máu.</li>
+                            <li><strong>Vitamin C</strong> hỗ trợ tổng hợp collagen cho da.</li>
+                            <li>Bộ ba <strong>Canxi - Magie - Vitamin D</strong> cực kỳ cần thiết để phòng ngừa loãng xương.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+        </main>
+
+        <!-- Bottom Navigation Bar -->
+        <nav class="fixed bottom-0 left-1/2 -translate-x-1/2 max-w-md w-full bg-white border-t shadow-t z-10">
+            <div class="flex justify-around">
+                <button data-target="home" class="bottom-nav-item active flex-1 flex flex-col items-center justify-center p-2 text-center text-gray-500 hover:bg-gray-100 transition">
+                    <svg class="w-6 h-6 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                    <span class="text-xs">Trang chủ</span>
+                </button>
+                <button data-target="daily_journey" class="bottom-nav-item flex-1 flex flex-col items-center justify-center p-2 text-center text-gray-500 hover:bg-gray-100 transition">
+                     <svg class="w-6 h-6 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg>
+                    <span class="text-xs">Lộ trình</span>
+                </button>
+                 <button data-target="library" class="bottom-nav-item flex-1 flex flex-col items-center justify-center p-2 text-center text-gray-500 hover:bg-gray-100 transition">
+                    <svg class="w-6 h-6 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                    <span class="text-xs">Thư viện</span>
+                </button>
+                 <button data-target="tools" class="bottom-nav-item flex-1 flex flex-col items-center justify-center p-2 text-center text-gray-500 hover:bg-gray-100 transition">
+                    <svg class="w-6 h-6 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    <span class="text-xs">Công cụ</span>
+                </button>
+            </div>
+        </nav>
+    </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const screens = document.querySelectorAll('.screen');
+        const bottomNavItems = document.querySelectorAll('.bottom-nav-item');
+        const navButtons = document.querySelectorAll('.nav-button');
+        const navBackButtons = document.querySelectorAll('.nav-back');
+        const bmrForm = document.getElementById('bmr-form');
+
+        // Function to switch screens
+        function showScreen(screenId) {
+            screens.forEach(screen => {
+                screen.classList.remove('active');
+            });
+            const activeScreen = document.getElementById(screenId);
+            if (activeScreen) {
+                activeScreen.classList.add('active');
+            }
+             // Update bottom nav active state
+            bottomNavItems.forEach(item => {
+                item.classList.toggle('active', item.dataset.target === screenId);
+            });
+            window.scrollTo(0, 0);
+        }
+
+        // Navigation for bottom bar and internal buttons
+        bottomNavItems.forEach(item => {
+            item.addEventListener('click', () => showScreen(item.dataset.target));
+        });
+
+        navButtons.forEach(button => {
+            button.addEventListener('click', () => showScreen(button.dataset.target));
+        });
+
+        navBackButtons.forEach(button => {
+            button.addEventListener('click', () => showScreen('library'));
+        });
+
+        // BMR Calculator Logic
+        bmrForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const gender = document.getElementById('gender').value;
+            const age = parseFloat(document.getElementById('age').value);
+            const height = parseFloat(document.getElementById('height').value);
+            const weight = parseFloat(document.getElementById('weight').value);
+
+            if (!age || !height || !weight) {
+                alert("Vui lòng điền đầy đủ thông tin.");
+                return;
+            }
+
+            let bmr = 0;
+            if (gender === 'male') {
+                // Harris-Benedict formula for men
+                bmr = 88.362 + (13.397 * weight) + (4.799 * height) - (5.677 * age);
+            } else {
+                // Harris-Benedict formula for women
+                bmr = 447.593 + (9.247 * weight) + (3.098 * height) - (4.330 * age);
+            }
+
+            document.getElementById('bmr-value').textContent = bmr.toFixed(0);
+            document.getElementById('bmr-result').classList.remove('hidden');
+        });
+
+        // Initialize App
+        function initializeApp() {
+            // Set current date
+            const dateElement = document.getElementById('current-date');
+            if (dateElement) {
+                 const today = new Date();
+                 const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+                 dateElement.textContent = today.toLocaleDateString('vi-VN', options);
+            }
+           
+            // Set random health tip
+            const tips = [
+                "70% hệ miễn dịch nằm ở đường ruột. Một hệ tiêu hóa khỏe mạnh là nền tảng cho sức đề kháng.",
+                "Uống đủ nước, nhưng hãy uống từng ngụm nhỏ để cơ thể hấp thu tốt nhất.",
+                "Chất xơ không chỉ giúp no lâu mà còn là thức ăn cho các lợi khuẩn trong đường ruột.",
+                "Giấc ngủ từ 10h tối đến 2h sáng là 'thời gian vàng' để cơ thể tiết hormone chữa lành.",
+                "Chỉ 30 phút đi bộ nhanh mỗi ngày có thể cải thiện đáng kể sức khỏe tim mạch và độ nhạy insulin."
+            ];
+            const tipElement = document.getElementById('health-tip');
+            if(tipElement) {
+                tipElement.textContent = tips[Math.floor(Math.random() * tips.length)];
+            }
+        }
+        
+        initializeApp();
+    });
+</script>
+
+</body>
+</html>
