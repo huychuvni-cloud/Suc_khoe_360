@@ -99,7 +99,7 @@
             <!-- ========= LIBRARY SCREEN ========= -->
             <div id="library" class="screen">
                 <header class="mb-6">
-                    <h1 class="text-2xl font-bold text-emerald-600">Thư Viện Dưỡng Sinh</h1>
+                    <h1 class="text-2xl font-bold text-emerald-600">Thư Viện Sức Khoẻ</h1>
                     <p class="text-gray-500">Kiến thức là sức khỏe. Chọn một chủ đề để tìm hiểu.</p>
                 </header>
                 <div class="space-y-3">
@@ -356,7 +356,7 @@
                         <h3 class="font-semibold mb-2 text-emerald-700">2. Hỗ Trợ Chuyên Biệt</h3>
                         <p class="mb-2 text-xs">Hỗ trợ giải độc, bảo vệ và tăng cường chức năng gan, cơ quan thải độc quan trọng nhất của cơ thể.</p>
                         <ul class="list-disc list-inside space-y-1 font-medium bg-gray-50 p-3 rounded-md">
-                            <li>Nutrilite Milk Thistle & Dandelion</li>
+                            <li>Nutrilite Liver Health</li>
                             <li>Nutrilite Natural B Complex</li>
                         </ul>
                     </div>
@@ -399,7 +399,7 @@
                         <ul class="list-disc list-inside mt-1">
                             <li>Cần chú trọng các <strong>Vitamin nhóm B</strong> để chuyển hóa năng lượng, giảm stress.</li>
                             <li><strong>Coenzyme Q10</strong> hỗ trợ hiệu suất thể chất.</li>
-                            <li>Các thảo dược như <strong>Cây cúc gai, Nghệ</strong> hỗ trợ chức năng gan.</li>
+                            <li>Các thảo dược như trong <strong>Nutrilite Liver Health</strong> hỗ trợ chức năng gan.</li>
                         </ul>
                     </div>
                      <div class="p-3 bg-pink-50 rounded-lg mt-3">
@@ -445,7 +445,6 @@
         const bottomNavItems = document.querySelectorAll('.bottom-nav-item');
         const navButtons = document.querySelectorAll('.nav-button');
         const navBackButtons = document.querySelectorAll('.nav-back');
-        const navBackToToolsButtons = document.querySelectorAll('.nav-back-to-tools');
         const bmrForm = document.getElementById('bmr-form');
 
         // Function to switch screens
@@ -465,6 +464,10 @@
                 });
             } else {
                  bottomNavItems.forEach(item => item.classList.remove('active'));
+                 // Activate the parent nav item if it's a detail screen
+                 if (screenId.startsWith('library_detail_')) {
+                    document.querySelector('.bottom-nav-item[data-target="library"]').classList.add('active');
+                 }
             }
             window.scrollTo(0, 0);
         }
@@ -475,16 +478,15 @@
         });
 
         navButtons.forEach(button => {
-            button.addEventListener('click', () => showScreen(button.dataset.target));
+            button.addEventListener('click', () => {
+                 showScreen(button.dataset.target)
+            });
         });
 
         navBackButtons.forEach(button => {
             button.addEventListener('click', () => showScreen('library'));
         });
 
-        navBackToToolsButtons.forEach(button => {
-            button.addEventListener('click', () => showScreen('tools'));
-        });
 
         // BMR Calculator Logic
         bmrForm.addEventListener('submit', function(e) {
@@ -542,5 +544,4 @@
 
 </body>
 </html>
-" selected in the Canvas "Ứng Dụng Sức Khỏe 360", what do you need from me to be able to add the "Nutrition Assessment" feature to it?
 
