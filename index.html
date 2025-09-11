@@ -21,18 +21,15 @@
 </head>
 <body class="bg-gray-50 text-gray-800">
 
-    <!-- Main Application Container -->
     <div id="app-container" class="max-w-md mx-auto bg-white min-h-screen shadow-lg">
         <main id="main-content" class="p-4 pb-24">
 
-            <!-- ========= HOME SCREEN ========= -->
             <div id="home" class="screen active">
                 <header class="mb-6">
                     <h1 class="text-2xl font-bold text-emerald-600">Sức Khỏe 360</h1>
                     <p class="text-gray-500">Chào mừng bạn trở lại!</p>
                 </header>
 
-                <!-- Health Dashboard -->
                 <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-4 mb-6">
                     <h2 class="text-lg font-semibold mb-3 text-emerald-800">Bản Đồ Sức Khỏe</h2>
                     <div class="space-y-3">
@@ -53,14 +50,12 @@
                     </div>
                 </div>
 
-                <!-- Health Tip of the Day -->
                 <div class="bg-amber-50 border border-amber-200 rounded-xl p-4">
                     <h3 class="font-semibold text-amber-800 mb-2">💡 Mẹo Sức Khỏe Hôm Nay</h3>
                     <p id="health-tip" class="text-sm text-gray-700"></p>
                 </div>
             </div>
 
-            <!-- ========= DAILY JOURNEY SCREEN ========= -->
             <div id="daily_journey" class="screen">
                 <header class="mb-6">
                     <h1 class="text-2xl font-bold text-emerald-600">Lộ Trình Hàng Ngày</h1>
@@ -68,7 +63,6 @@
                 </header>
 
                 <div class="space-y-6">
-                    <!-- Nutrition Section -->
                     <div class="bg-white p-4 rounded-xl border">
                         <h2 class="text-lg font-semibold mb-4 flex items-center"><span class="text-2xl mr-2">🥗</span>Dinh Dưỡng Thông Minh</h2>
                         <ul class="space-y-3 text-sm">
@@ -77,14 +71,12 @@
                              <li class="flex items-center"><input type="checkbox" class="h-4 w-4 rounded border-gray-300 text-emerald-600 focus:ring-emerald-500 mr-3"><span class="flex-1"><strong>Bữa tối:</strong> Salad cá hồi + 1 viên Omega-3</span></li>
                         </ul>
                     </div>
-                    <!-- Workout Section -->
                     <div class="bg-white p-4 rounded-xl border">
                         <h2 class="text-lg font-semibold mb-4 flex items-center"><span class="text-2xl mr-2">🏃</span>Vận Động Phù Hợp</h2>
                         <ul class="space-y-3 text-sm">
                             <li class="flex items-center"><input type="checkbox" class="h-4 w-4 rounded border-gray-300 text-emerald-600 focus:ring-emerald-500 mr-3"><span class="flex-1"><strong>Mục tiêu:</strong> Đi bộ nhanh 30 phút</span></li>
                         </ul>
                     </div>
-                    <!-- Lifestyle Section -->
                     <div class="bg-white p-4 rounded-xl border">
                         <h2 class="text-lg font-semibold mb-4 flex items-center"><span class="text-2xl mr-2">🧘</span>Lối Sống Cân Bằng</h2>
                         <ul class="space-y-3 text-sm">
@@ -96,7 +88,6 @@
                 </div>
             </div>
 
-            <!-- ========= LIBRARY SCREEN ========= -->
             <div id="library" class="screen">
                 <header class="mb-6">
                     <h1 class="text-2xl font-bold text-emerald-600">Thư Viện Dưỡng Sinh</h1>
@@ -113,14 +104,12 @@
                 </div>
             </div>
 
-            <!-- ========= TOOLS SCREEN ========= -->
             <div id="tools" class="screen">
                 <header class="mb-6">
                     <h1 class="text-2xl font-bold text-emerald-600">Công Cụ & Hỗ Trợ</h1>
                     <p class="text-gray-500">Trợ lý sức khỏe cá nhân của bạn.</p>
                 </header>
                 <div class="space-y-6">
-                    <!-- BMR Calculator -->
                     <div class="bg-white p-4 rounded-xl border">
                         <h2 class="text-lg font-semibold mb-4">Tính Toán BMR & TDEE</h2>
                         <form id="bmr-form" class="space-y-4 text-sm">
@@ -151,35 +140,63 @@
                         </div>
                     </div>
                     
-                    <!-- Other Solution Packages -->
                     <div class="bg-white p-4 rounded-xl border">
                         <h2 class="text-lg font-semibold mb-4">Các Gói Giải Pháp Tham Khảo</h2>
-                        <div class="space-y-2">
-                            <button data-target="solution_foundational" class="nav-button w-full text-left p-3 bg-gray-100 hover:bg-emerald-100 rounded-lg transition font-medium text-sm text-gray-800">Gói Giải Pháp: Sức Khỏe Nền Tảng</button>
-                            <button data-target="solution_digestive" class="nav-button w-full text-left p-3 bg-gray-100 hover:bg-emerald-100 rounded-lg transition font-medium text-sm text-gray-800">Gói Giải Pháp: Hệ Tiêu Hóa</button>
-                            <button data-target="solution_immune" class="nav-button w-full text-left p-3 bg-gray-100 hover:bg-emerald-100 rounded-lg transition font-medium text-sm text-gray-800">Gói Giải Pháp: Hệ Miễn Dịch</button>
-                            <button data-target="solution_joint" class="nav-button w-full text-left p-3 bg-gray-100 hover:bg-emerald-100 rounded-lg transition font-medium text-sm text-gray-800">Gói Giải Pháp: Xương Khớp</button>
-                            <button data-target="solution_cardio" class="nav-button w-full text-left p-3 bg-gray-100 hover:bg-emerald-100 rounded-lg transition font-medium text-sm text-gray-800">Gói Giải Pháp: Tim Mạch</button>
-                            <button data-target="solution_liver" class="nav-button w-full text-left p-3 bg-gray-100 hover:bg-emerald-100 rounded-lg transition font-medium text-sm text-gray-800">Gói Giải Pháp: Lá Gan</button>
-                            <button data-target="solution_brain_eye" class="nav-button w-full text-left p-3 bg-gray-100 hover:bg-emerald-100 rounded-lg transition font-medium text-sm text-gray-800">Gói Giải Pháp: Mắt & Não Bộ</button>
+                        <div class="grid grid-cols-2 gap-4">
+                            <button data-target="solution_foundational" class="nav-button flex flex-col items-center justify-center p-4 rounded-xl text-center bg-slate-50 border border-slate-200 hover:shadow-lg transition">
+                                <svg class="w-8 h-8 mb-2 text-slate-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" /></svg>
+                                <strong class="font-semibold text-sm">Sức Khỏe Nền Tảng</strong>
+                                <p class="text-xs text-gray-500 mt-1">Xây dựng "móng nhà" sức khỏe vững chắc.</p>
+                            </button>
+                             <button data-target="solution_digestive" class="nav-button flex flex-col items-center justify-center p-4 rounded-xl text-center bg-green-50 border border-green-200 hover:shadow-lg transition">
+                                <svg class="w-8 h-8 mb-2 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m5.231 13.481L15 17.25m-4.5-15H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" /></svg>
+                                <strong class="font-semibold text-sm">Hệ Tiêu Hóa</strong>
+                                <p class="text-xs text-gray-500 mt-1">Cân bằng vi sinh, khởi nguồn đề kháng.</p>
+                            </button>
+                             <button data-target="solution_immune" class="nav-button flex flex-col items-center justify-center p-4 rounded-xl text-center bg-sky-50 border border-sky-200 hover:shadow-lg transition">
+                                <svg class="w-8 h-8 mb-2 text-sky-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.286Z" /></svg>
+                                <strong class="font-semibold text-sm">Hệ Miễn Dịch</strong>
+                                <p class="text-xs text-gray-500 mt-1">Xây dựng hàng rào bảo vệ tự nhiên.</p>
+                            </button>
+                             <button data-target="solution_joint" class="nav-button flex flex-col items-center justify-center p-4 rounded-xl text-center bg-orange-50 border border-orange-200 hover:shadow-lg transition">
+                                <svg class="w-8 h-8 mb-2 text-orange-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125" /></svg>
+                                <strong class="font-semibold text-sm">Xương Khớp</strong>
+                                <p class="text-xs text-gray-500 mt-1">Bôi trơn khớp nối, vững bước dẻo dai.</p>
+                            </button>
+                             <button data-target="solution_cardio" class="nav-button flex flex-col items-center justify-center p-4 rounded-xl text-center bg-red-50 border border-red-200 hover:shadow-lg transition">
+                                <svg class="w-8 h-8 mb-2 text-red-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" /></svg>
+                                <strong class="font-semibold text-sm">Tim Mạch</strong>
+                                <p class="text-xs text-gray-500 mt-1">Bảo vệ động cơ, vững bền nhịp sống.</p>
+                            </button>
+                            <button data-target="solution_liver" class="nav-button flex flex-col items-center justify-center p-4 rounded-xl text-center bg-yellow-50 border border-yellow-200 hover:shadow-lg transition">
+                                <svg class="w-8 h-8 mb-2 text-yellow-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z" /></svg>
+                                <strong class="font-semibold text-sm">Lá Gan</strong>
+                                <p class="text-xs text-gray-500 mt-1">Hỗ trợ thải độc, lá chắn cho cơ thể.</p>
+                            </button>
+                             <button data-target="solution_brain_eye" class="nav-button flex flex-col items-center justify-center p-4 rounded-xl text-center bg-violet-50 border border-violet-200 hover:shadow-lg transition col-span-2">
+                                <svg class="w-8 h-8 mb-2 text-violet-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 0 0 1.5-.189m-1.5.189a6.01 6.01 0 0 1-1.5-.189m3.75 7.478a12.06 12.06 0 0 1-4.5 0m3.75 2.354a15.056 15.056 0 0 1-4.5 0m4.5 0a15.056 15.056 0 0 1 4.5 0M12 4.5v5.25m0 0a5.991 5.991 0 0 1 1.5.189m-1.5-.189a5.991 5.991 0 0 0-1.5.189m3.75-7.478a12.06 12.06 0 0 0-4.5 0m3.75-2.354a15.056 15.056 0 0 0-4.5 0m4.5 0a15.056 15.056 0 0 0 4.5 0" /></svg>
+                                <strong class="font-semibold text-sm">Mắt & Não Bộ</strong>
+                                <p class="text-xs text-gray-500 mt-1">Cho đôi mắt sáng, cho trí tuệ minh.</p>
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
             
-            <!-- ========= SOLUTION PACKAGE DETAIL SCREENS ========= -->
-             <div id="solution_foundational" class="screen">
+            <div id="solution_foundational" class="screen">
                 <header class="mb-4">
                     <button class="nav-back-to-tools text-emerald-600 font-semibold mb-2">&lt; Quay lại Công Cụ</button>
                     <h1 class="text-xl font-bold">Gói Giải Pháp: Sức Khỏe Nền Tảng</h1>
                 </header>
-                <div class="space-y-3 text-sm text-gray-700">
-                    <p class="mb-2">Đây là bộ sản phẩm cốt lõi, giúp lấp đầy các khoảng trống dinh dưỡng mà bữa ăn hàng ngày có thể thiếu hụt, xây dựng một cơ thể khỏe mạnh từ gốc rễ.</p>
-                    <ul class="list-disc list-inside space-y-1 font-medium bg-gray-50 p-3 rounded-md">
-                        <li>Nutrilite Double X</li>
-                        <li>Nutrilite All Plant Protein Powder / BodyKey</li>
-                        <li>Nutrilite Salmon Omega-3</li>
-                    </ul>
+                <div class="space-y-4 text-sm text-gray-700">
+                     <div>
+                        <h3 class="font-semibold mb-2 text-emerald-700">Bộ Nền Tảng</h3>
+                        <ul class="list-disc list-inside space-y-1 font-medium bg-gray-50 p-3 rounded-md">
+                            <li>Nutrilite Double X</li>
+                            <li>Nutrilite All Plant Protein Powder / BodyKey</li>
+                            <li>Nutrilite Salmon Omega-3</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
             
@@ -327,7 +344,6 @@
             </div>
 
 
-            <!-- ========= LIBRARY DETAIL SCREENS ========= -->
             <div id="library_detail_foundational" class="screen">
                 <header class="mb-4">
                     <button class="nav-back text-emerald-600 font-semibold mb-2">&lt; Quay lại Thư Viện</button>
@@ -452,7 +468,6 @@
 
         </main>
 
-        <!-- Bottom Navigation Bar -->
         <nav class="fixed bottom-0 left-1/2 -translate-x-1/2 max-w-md w-full bg-white border-t shadow-t z-10">
             <div class="flex justify-around">
                 <button data-target="home" class="bottom-nav-item active flex-1 flex flex-col items-center justify-center p-2 text-center text-gray-500 hover:bg-gray-100 transition">
@@ -578,6 +593,3 @@
 
 </body>
 </html>
-
-
-
