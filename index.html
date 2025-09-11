@@ -21,15 +21,18 @@
 </head>
 <body class="bg-gray-50 text-gray-800">
 
+    <!-- Main Application Container -->
     <div id="app-container" class="max-w-md mx-auto bg-white min-h-screen shadow-lg">
         <main id="main-content" class="p-4 pb-24">
 
+            <!-- ========= HOME SCREEN ========= -->
             <div id="home" class="screen active">
                 <header class="mb-6">
                     <h1 class="text-2xl font-bold text-emerald-600">Sức Khỏe 360</h1>
                     <p class="text-gray-500">Chào mừng bạn trở lại!</p>
                 </header>
 
+                <!-- Health Dashboard -->
                 <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-4 mb-6">
                     <h2 class="text-lg font-semibold mb-3 text-emerald-800">Bản Đồ Sức Khỏe</h2>
                     <div class="space-y-3">
@@ -50,12 +53,14 @@
                     </div>
                 </div>
 
+                <!-- Health Tip of the Day -->
                 <div class="bg-amber-50 border border-amber-200 rounded-xl p-4">
                     <h3 class="font-semibold text-amber-800 mb-2">💡 Mẹo Sức Khỏe Hôm Nay</h3>
                     <p id="health-tip" class="text-sm text-gray-700"></p>
                 </div>
             </div>
 
+            <!-- ========= DAILY JOURNEY SCREEN ========= -->
             <div id="daily_journey" class="screen">
                 <header class="mb-6">
                     <h1 class="text-2xl font-bold text-emerald-600">Lộ Trình Hàng Ngày</h1>
@@ -63,6 +68,7 @@
                 </header>
 
                 <div class="space-y-6">
+                    <!-- Nutrition Section -->
                     <div class="bg-white p-4 rounded-xl border">
                         <h2 class="text-lg font-semibold mb-4 flex items-center"><span class="text-2xl mr-2">🥗</span>Dinh Dưỡng Thông Minh</h2>
                         <ul class="space-y-3 text-sm">
@@ -71,12 +77,14 @@
                              <li class="flex items-center"><input type="checkbox" class="h-4 w-4 rounded border-gray-300 text-emerald-600 focus:ring-emerald-500 mr-3"><span class="flex-1"><strong>Bữa tối:</strong> Salad cá hồi + 1 viên Omega-3</span></li>
                         </ul>
                     </div>
+                    <!-- Workout Section -->
                     <div class="bg-white p-4 rounded-xl border">
                         <h2 class="text-lg font-semibold mb-4 flex items-center"><span class="text-2xl mr-2">🏃</span>Vận Động Phù Hợp</h2>
                         <ul class="space-y-3 text-sm">
                             <li class="flex items-center"><input type="checkbox" class="h-4 w-4 rounded border-gray-300 text-emerald-600 focus:ring-emerald-500 mr-3"><span class="flex-1"><strong>Mục tiêu:</strong> Đi bộ nhanh 30 phút</span></li>
                         </ul>
                     </div>
+                    <!-- Lifestyle Section -->
                     <div class="bg-white p-4 rounded-xl border">
                         <h2 class="text-lg font-semibold mb-4 flex items-center"><span class="text-2xl mr-2">🧘</span>Lối Sống Cân Bằng</h2>
                         <ul class="space-y-3 text-sm">
@@ -88,6 +96,7 @@
                 </div>
             </div>
 
+            <!-- ========= LIBRARY SCREEN ========= -->
             <div id="library" class="screen">
                 <header class="mb-6">
                     <h1 class="text-2xl font-bold text-emerald-600">Thư Viện Dưỡng Sinh</h1>
@@ -104,12 +113,14 @@
                 </div>
             </div>
 
+            <!-- ========= TOOLS SCREEN ========= -->
             <div id="tools" class="screen">
                 <header class="mb-6">
                     <h1 class="text-2xl font-bold text-emerald-600">Công Cụ & Hỗ Trợ</h1>
                     <p class="text-gray-500">Trợ lý sức khỏe cá nhân của bạn.</p>
                 </header>
                 <div class="space-y-6">
+                    <!-- BMR Calculator -->
                     <div class="bg-white p-4 rounded-xl border">
                         <h2 class="text-lg font-semibold mb-4">Tính Toán BMR & TDEE</h2>
                         <form id="bmr-form" class="space-y-4 text-sm">
@@ -140,6 +151,7 @@
                         </div>
                     </div>
                     
+                    <!-- Other Solution Packages -->
                     <div class="bg-white p-4 rounded-xl border">
                         <h2 class="text-lg font-semibold mb-4">Các Gói Giải Pháp Tham Khảo</h2>
                         <div class="grid grid-cols-2 gap-4">
@@ -183,7 +195,8 @@
                 </div>
             </div>
             
-            <div id="solution_foundational" class="screen">
+            <!-- ========= SOLUTION PACKAGE DETAIL SCREENS ========= -->
+             <div id="solution_foundational" class="screen">
                 <header class="mb-4">
                     <button class="nav-back-to-tools text-emerald-600 font-semibold mb-2">&lt; Quay lại Công Cụ</button>
                     <h1 class="text-xl font-bold">Gói Giải Pháp: Sức Khỏe Nền Tảng</h1>
@@ -344,6 +357,7 @@
             </div>
 
 
+            <!-- ========= LIBRARY DETAIL SCREENS ========= -->
             <div id="library_detail_foundational" class="screen">
                 <header class="mb-4">
                     <button class="nav-back text-emerald-600 font-semibold mb-2">&lt; Quay lại Thư Viện</button>
@@ -468,6 +482,7 @@
 
         </main>
 
+        <!-- Bottom Navigation Bar -->
         <nav class="fixed bottom-0 left-1/2 -translate-x-1/2 max-w-md w-full bg-white border-t shadow-t z-10">
             <div class="flex justify-around">
                 <button data-target="home" class="bottom-nav-item active flex-1 flex flex-col items-center justify-center p-2 text-center text-gray-500 hover:bg-gray-100 transition">
@@ -593,3 +608,4 @@
 
 </body>
 </html>
+
