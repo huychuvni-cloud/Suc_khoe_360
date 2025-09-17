@@ -25,7 +25,7 @@
             margin-bottom: 1rem;
         }
         #chat-messages {
-            height: calc(100vh - 200px); /* Adjust based on header/footer height */
+            height: calc(100vh - 220px); /* Adjust based on header/footer height */
         }
     </style>
 </head>
@@ -39,27 +39,41 @@
             <div id="home" class="screen active">
                 <header class="mb-6">
                     <h1 class="text-2xl font-bold text-emerald-600">Sức Khỏe 360</h1>
-                    <p class="text-gray-500">Chào mừng bạn trở lại!</p>
+                    <p class="text-gray-500">Trợ lý sức khỏe cá nhân của bạn.</p>
                 </header>
-                <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-4 mb-6">
+                <div id="health-dashboard-setup" class="bg-emerald-50 border border-emerald-200 rounded-xl p-4 mb-6">
+                    <h2 class="text-lg font-semibold mb-3 text-emerald-800">Bắt Đầu Hành Trình Của Bạn</h2>
+                    <p class="text-sm text-gray-600 mb-4">Hãy cung cấp thông tin để chúng tôi tạo ra một lộ trình được cá nhân hóa dành riêng cho bạn.</p>
+                    <form id="user-info-form" class="space-y-4 text-sm">
+                         <div>
+                            <label for="goal" class="block font-medium">Mục tiêu của bạn là gì?</label>
+                            <select id="goal" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500">
+                                <option value="maintain">Duy trì cân nặng</option>
+                                <option value="lose">Giảm cân</option>
+                                <option value="gain">Tăng cân</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="activity-level" class="block font-medium">Mức độ vận động:</label>
+                             <select id="activity-level" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500">
+                                <option value="1.2">Ít vận động (văn phòng)</option>
+                                <option value="1.375">Vận động nhẹ (1-3 ngày/tuần)</option>
+                                <option value="1.55">Vận động vừa (3-5 ngày/tuần)</option>
+                                <option value="1.725">Vận động nặng (6-7 ngày/tuần)</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="w-full bg-emerald-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-emerald-700 transition">Tạo Bản Đồ Sức Khỏe</button>
+                    </form>
+                </div>
+
+                <div id="health-dashboard-display" class="bg-emerald-50 border border-emerald-200 rounded-xl p-4 mb-6 hidden">
                     <h2 class="text-lg font-semibold mb-3 text-emerald-800">Bản Đồ Sức Khỏe</h2>
-                    <div class="space-y-3">
-                        <div>
-                            <p class="text-sm text-gray-600">Năng lượng mục tiêu hôm nay:</p>
-                            <div class="w-full bg-gray-200 rounded-full h-2.5 mt-1">
-                                <div class="bg-emerald-500 h-2.5 rounded-full" style="width: 80%"></div>
-                            </div>
-                            <p class="text-right text-sm font-medium mt-1">1760 / 2200 kcal</p>
-                        </div>
-                        <div>
-                            <p class="text-sm text-gray-600">Ưu tiên sức khỏe:</p>
-                            <div class="flex flex-wrap gap-2 mt-1">
-                                <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Kiểm soát Cân nặng</span>
-                                <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Sức khỏe Tiêu hóa</span>
-                            </div>
-                        </div>
+                    <div>
+                        <p class="text-sm text-gray-600">Năng lượng mục tiêu hôm nay:</p>
+                        <p class="text-right text-2xl font-bold mt-1 text-emerald-600"><span id="tdee-value">0</span> kcal</p>
                     </div>
                 </div>
+
                 <div class="bg-amber-50 border border-amber-200 rounded-xl p-4">
                     <h3 class="font-semibold text-amber-800 mb-2">💡 Mẹo Sức Khỏe Hôm Nay</h3>
                     <p id="health-tip" class="text-sm text-gray-700"></p>
@@ -124,36 +138,6 @@
                     <p class="text-gray-500">Trợ lý sức khỏe cá nhân của bạn.</p>
                 </header>
                 <div class="space-y-6">
-                    <div class="bg-white p-4 rounded-xl border">
-                        <h2 class="text-lg font-semibold mb-4">Tính Toán BMR & TDEE</h2>
-                        <form id="bmr-form" class="space-y-4 text-sm">
-                            <div>
-                                <label for="gender" class="block font-medium">Giới tính</label>
-                                <select id="gender" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500">
-                                    <option value="male">Nam</option>
-                                    <option value="female">Nữ</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label for="age" class="block font-medium">Tuổi (năm)</label>
-                                <input type="number" id="age" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500" placeholder="e.g., 35">
-                            </div>
-                            <div>
-                                <label for="height" class="block font-medium">Chiều cao (cm)</label>
-                                <input type="number" id="height" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500" placeholder="e.g., 172">
-                            </div>
-                            <div>
-                                <label for="weight" class="block font-medium">Cân nặng (kg)</label>
-                                <input type="number" id="weight" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500" placeholder="e.g., 78.8">
-                            </div>
-                            <button type="submit" class="w-full bg-emerald-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-emerald-700 transition">Tính Toán</button>
-                        </form>
-                        <div id="bmr-result" class="mt-4 text-center hidden">
-                            <p class="text-gray-600">Năng lượng trao đổi chất cơ bản (BMR) của bạn là:</p>
-                            <p class="text-3xl font-bold text-emerald-600 mt-1"><span id="bmr-value"></span> kcal/ngày</p>
-                        </div>
-                    </div>
-                    
                     <div class="bg-white p-4 rounded-xl border">
                         <h2 class="text-lg font-semibold mb-4">Các Gói Giải Pháp Tham Khảo</h2>
                         <div class="grid grid-cols-2 gap-4">
@@ -467,6 +451,8 @@
         const navButtons = document.querySelectorAll('.nav-button');
         const navBackButtons = document.querySelectorAll('.nav-back');
         const bmrForm = document.getElementById('bmr-form');
+        const userInfoForm = document.getElementById('user-info-form');
+
         const chatForm = document.getElementById('chat-form');
         const chatInput = document.getElementById('chat-input');
         const chatMessages = document.getElementById('chat-messages');
@@ -505,16 +491,21 @@
             button.addEventListener('click', () => showScreen('library'));
         });
 
-        // BMR Calculator Logic
-        bmrForm.addEventListener('submit', function(e) {
+        // BMR and TDEE calculation on Home screen
+        userInfoForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            const gender = document.getElementById('gender').value;
+            // Get user's base info from Tools tab (assuming it's filled)
+             const gender = document.getElementById('gender').value;
             const age = parseFloat(document.getElementById('age').value);
             const height = parseFloat(document.getElementById('height').value);
             const weight = parseFloat(document.getElementById('weight').value);
+            const activityLevel = parseFloat(document.getElementById('activity-level').value);
+            const goal = document.getElementById('goal').value;
 
             if (!age || !height || !weight) {
-                alert("Vui lòng điền đầy đủ thông tin.");
+                // Redirect user to fill info in Tools if not available
+                alert("Vui lòng nhập thông tin cơ bản của bạn tại tab 'Công Cụ' trước.");
+                showScreen('tools');
                 return;
             }
 
@@ -524,8 +515,18 @@
             } else {
                 bmr = 447.593 + (9.247 * weight) + (3.098 * height) - (4.330 * age);
             }
-            document.getElementById('bmr-value').textContent = bmr.toFixed(0);
-            document.getElementById('bmr-result').classList.remove('hidden');
+            
+            let tdee = bmr * activityLevel;
+
+            if (goal === 'lose') {
+                tdee -= 500; // Calorie deficit for weight loss
+            } else if (goal === 'gain') {
+                tdee += 500; // Calorie surplus for weight gain
+            }
+            
+            document.getElementById('tdee-value').textContent = tdee.toFixed(0);
+            document.getElementById('health-dashboard-setup').classList.add('hidden');
+            document.getElementById('health-dashboard-display').classList.remove('hidden');
         });
         
         // Chat Logic
@@ -534,15 +535,15 @@
             messageDiv.classList.add('p-3', 'rounded-lg', 'max-w-xs', 'text-sm');
             if (sender === 'user') {
                 messageDiv.classList.add('bg-emerald-500', 'text-white', 'ml-auto');
+                messageDiv.textContent = text;
             } else {
                 messageDiv.classList.add('bg-white', 'border', 'mr-auto');
                 if (text.includes('typing...')) {
                     messageDiv.id = 'typing-indicator';
+                    messageDiv.innerHTML = `<div class="flex items-center space-x-1"><div class="w-2 h-2 bg-gray-400 rounded-full animate-pulse"></div><div class="w-2 h-2 bg-gray-400 rounded-full animate-pulse" style="animation-delay: 0.2s;"></div><div class="w-2 h-2 bg-gray-400 rounded-full animate-pulse" style="animation-delay: 0.4s;"></div></div>`;
+                } else {
+                    messageDiv.innerHTML = text.replace(/\n/g, '<br>'); 
                 }
-                messageDiv.innerHTML = text; // Use innerHTML to render formatted text
-            }
-            if (sender !== 'typing') {
-                 messageDiv.textContent = text;
             }
            
             chatMessages.appendChild(messageDiv);
@@ -551,7 +552,7 @@
 
         function getAiResponse(userInput) {
             const lowerInput = userInput.toLowerCase();
-            let response = "Xin lỗi, tôi chưa được huấn luyện về chủ đề này. Tôi chỉ có thể cung cấp thông tin về các giải pháp sức khỏe, dinh dưỡng và kiểm soát cân nặng dựa trên các tài liệu đã được cung cấp. Bạn có thể hỏi tôi về tiểu đường, giảm cân, tim mạch, xương khớp, tiêu hóa, gan, mắt, não bộ hoặc sức khỏe nền tảng.";
+            let response = "Xin lỗi, tôi chưa được huấn luyện về chủ đề này. Dựa trên kiến thức hiện tại, tôi có thể cung cấp thông tin về các giải pháp sức khỏe, dinh dưỡng và kiểm soát cân nặng. Bạn có thể hỏi tôi về tiểu đường, giảm cân, tim mạch, xương khớp, tiêu hóa, gan, mắt, não bộ hoặc các nguyên tắc sống khỏe.";
 
             if (lowerInput.includes('tiểu đường') || lowerInput.includes('đường huyết')) {
                 response = `Chào bạn, đối với người bệnh tiểu đường tuýp 2, việc cải thiện sức khỏe nền tảng là vô cùng quan trọng. Nguyên tắc chính là kiểm soát đường huyết và quản lý cân nặng qua một lối sống khoa học.
@@ -592,7 +593,19 @@
                 \n2. **Hỗ trợ chuyên biệt:**
                 \n- **Nutrilite Probiotic:** Bổ sung lợi khuẩn để đạt tỷ lệ vàng 85% lợi khuẩn - 15% hại khuẩn.
                 \n- **Nutrilite Fiber Powder:** Cung cấp chất xơ hòa tan (Prebiotic) - là thức ăn cho lợi khuẩn.`;
+            } else if (lowerInput.includes('gan') || lowerInput.includes('thải độc')) {
+                 response = `Lá gan là cơ quan thải độc chính của cơ thể. Hỗ trợ chức năng gan là một phần quan trọng của sức khỏe tổng thể.
+                \n\n**Giải pháp dinh dưỡng toàn diện:**
+                \n1. **Bộ Nền Tảng:** Double X, Protein, Omega-3.
+                \n2. **Hỗ trợ chuyên biệt:**
+                \n- **Nutrilite Liver Health:** Chứa các thảo dược như Cây cúc gai và Nghệ giúp hỗ trợ chức năng gan.
+                \n- **Nutrilite Natural B Complex:** Vitamin nhóm B cần thiết cho các quá trình chuyển hóa tại gan.`;
+            } else if (lowerInput.includes('enzyme') || lowerInput.includes('shinya')) {
+                 response = `Theo bác sĩ Hiromi Shinya trong tác phẩm "Nhân tố Enzyme", enzyme diệu kỳ là cội nguồn của sự sống và sức khỏe. Một chế độ ăn uống lành mạnh, giàu thực phẩm tươi sống và chưa qua chế biến sẽ giúp bảo tồn lượng enzyme quý giá này. Ông cũng nhấn mạnh tầm quan trọng của việc duy trì một đường ruột sạch sẽ và khỏe mạnh, vì đây là nơi sản sinh ra nhiều enzyme quan trọng.`;
+            } else if (lowerInput.includes('bác sĩ tốt nhất') || lowerInput.includes('chính mình')) {
+                 response = `Triết lý "Bác sĩ tốt nhất là chính mình" nhấn mạnh rằng cơ thể chúng ta sở hữu khả năng tự chữa lành phi thường. Thay vì phụ thuộc hoàn toàn vào thuốc men, chúng ta nên chủ động xây dựng một lối sống lành mạnh thông qua dinh dưỡng cân bằng, vận động hợp lý, và tinh thần lạc quan. Đây chính là cách tốt nhất để phòng bệnh và duy trì sức khỏe bền vững.`;
             }
+
 
             return response;
         }
@@ -605,7 +618,7 @@
             displayMessage(userInput, 'user');
             chatInput.value = '';
 
-            displayMessage('Chuyên gia dinh dưỡng đang soạn câu trả lời...', 'typing');
+            displayMessage('typing...', 'ai');
             
             setTimeout(() => {
                 const typingIndicator = document.getElementById('typing-indicator');
@@ -620,7 +633,7 @@
         // Initial welcome message
         function showWelcomeMessage() {
              setTimeout(() => {
-                displayMessage("Chào bạn, tôi là Trợ lý Sức khỏe AI. Tôi có thể giúp gì cho bạn hôm nay? Hãy đặt câu hỏi về các vấn đề sức khỏe như tiểu đường, giảm cân, xương khớp, tim mạch...", 'ai');
+                displayMessage("Chào bạn, tôi là Trợ lý Sức khỏe AI. Tôi có thể giúp gì cho bạn hôm nay? Hãy đặt câu hỏi về các vấn đề sức khỏe như tiểu đường, giảm cân, xương khớp, hay các triết lý về enzyme và khả năng tự chữa lành.", 'ai');
             }, 500);
         }
 
@@ -652,4 +665,3 @@
 
 </body>
 </html>
-
